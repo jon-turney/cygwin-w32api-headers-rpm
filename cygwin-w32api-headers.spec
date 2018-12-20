@@ -2,7 +2,7 @@
 #%%global branch trunk
 
 Name:           cygwin-w32api-headers
-Version:        5.0.3
+Version:        5.0.4
 Release:        1%{?dist}
 Summary:        Win32 header files for Cygwin toolchain
 
@@ -76,6 +76,9 @@ popd
 
 
 %changelog
+* Thu Dec 20 2018 Yaakov Selkowitz <yselkowi@redhat.com> - 5.0.4-1
+- new version
+
 * Wed Nov 15 2017 Yaakov Selkowitz <yselkowi@redhat.com> - 5.0.3-1
 - new version
 
