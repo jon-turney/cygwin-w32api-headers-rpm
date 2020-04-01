@@ -2,7 +2,7 @@
 #%%global branch trunk
 
 Name:           cygwin-w32api-headers
-Version:        5.0.4
+Version:        7.0.0
 Release:        1%{?dist}
 Summary:        Win32 header files for Cygwin toolchain
 
