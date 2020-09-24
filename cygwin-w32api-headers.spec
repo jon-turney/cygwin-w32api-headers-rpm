@@ -67,11 +67,11 @@ popd
 
 
 %files -n cygwin32-w32api-headers
-%doc COPYING DISCLAIMER DISCLAIMER.PD mingw-w64-headers/direct-x/COPYING.LIB
+%doc COPYING DISCLAIMER DISCLAIMER.PD
 %{cygwin32_includedir}/w32api/
 
 %files -n cygwin64-w32api-headers
-%doc COPYING DISCLAIMER DISCLAIMER.PD mingw-w64-headers/direct-x/COPYING.LIB
+%doc COPYING DISCLAIMER DISCLAIMER.PD
 %{cygwin64_includedir}/w32api/
 
 
