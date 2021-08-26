@@ -2,13 +2,13 @@
 #%%global branch trunk
 
 Name:           cygwin-w32api-headers
-Version:        8.0.0
+Version:        9.0.0
 Release:        1%{?dist}
 Summary:        Win32 header files for Cygwin toolchain
 
 License:        Public Domain and LGPLv2+ and ZPLv2.1
 Group:          Development/Libraries
-URL:            http://mingw-w64.sourceforge.net/
+URL:            https://mingw-w64.org/
 BuildArch:      noarch
 
 %if 0%{?snapshot_rev}
@@ -76,6 +76,9 @@ popd
 
 
 %changelog
+* Thu Aug 26 2021 Yaakov Selkowitz <yselkowi@redhat.com> - 9.0.0-1
+- new version
+
 * Thu Dec 20 2018 Yaakov Selkowitz <yselkowi@redhat.com> - 5.0.4-1
 - new version
 
