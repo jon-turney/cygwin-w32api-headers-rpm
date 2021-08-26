@@ -24,6 +24,7 @@ Source0:        http://downloads.sourceforge.net/mingw-w64/mingw-w64-v%{version}
 
 BuildRequires:  cygwin32-filesystem
 BuildRequires:  cygwin64-filesystem
+BuildRequires:  make
 
 %description
 Cygwin cross-compiler Win32 header files.
@@ -77,6 +78,12 @@ popd
 
 %changelog
 * Thu Aug 26 2021 Yaakov Selkowitz <yselkowi@redhat.com> - 9.0.0-1
+- new version
+
+* Thu Sep 24 2020 Yaakov Selkowitz <yselkowi@redhat.com> - 8.0.0-1
+- new version
+
+* Wed Apr  1 2020 Yaakov Selkowitz <yselkowi@redhat.com> - 7.0.0-1
 - new version
 
 * Thu Dec 20 2018 Yaakov Selkowitz <yselkowi@redhat.com> - 5.0.4-1
