@@ -2,7 +2,7 @@
 #%%global branch trunk
 
 Name:           cygwin-w32api-headers
-Version:        9.0.0
+Version:        10.0.0
 Release:        1%{?dist}
 Summary:        Win32 header files for Cygwin toolchain
 
@@ -77,6 +77,9 @@ popd
 
 
 %changelog
+* Thu Apr 28 2022 Jon Turney <jturney@sourceware.org> - 10.0.0-1
+- new version
+
 * Thu Aug 26 2021 Yaakov Selkowitz <yselkowi@redhat.com> - 9.0.0-1
 - new version
 
