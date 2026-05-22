@@ -3,7 +3,7 @@
 
 Name:           cygwin-w32api-headers
 Version:        14.0.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Win32 header files for Cygwin toolchain
 
 License:        Public Domain and LGPLv2+ and ZPLv2.1
@@ -22,15 +22,18 @@ Source0:        mingw-w64-code-%{snapshot_rev}-%{branch}.zip
 Source0:        https://downloads.sourceforge.net/mingw-w64/mingw-w64-v%{version}.tar.bz2
 %endif
 
+Patch0:         0001-Add-aarch64-pc-cygwin-target.patch
+
 BuildRequires:  cygwin32-filesystem
 BuildRequires:  cygwin64-filesystem
+BuildRequires:  cygwin-aarch64-filesystem
 BuildRequires:  make
 
 %description
 Cygwin cross-compiler Win32 header files.
 
 %package -n cygwin32-w32api-headers
-Summary:   Win32 header files for Cygwin32 toolchain
+Summary:   Win32 header files for Cygwin i686 toolchain
 Requires:  cygwin32-filesystem
 Provides:  %{name} = %{version}-%{release}
 Obsoletes: %{name} < %{version}-%{release}
@@ -39,12 +42,18 @@ Obsoletes: %{name} < %{version}-%{release}
 Cygwin i686 cross-compiler Win32 header files.
 
 %package -n cygwin64-w32api-headers
-Summary:   Win32 header files for Cygwin64 toolchain
+Summary:   Win32 header files for Cygwin x86_64 toolchain
 Requires:  cygwin64-filesystem
 
 %description -n cygwin64-w32api-headers
 Cygwin x86_64 cross-compiler Win32 header files.
 
+%package -n cygwin-aarch64-w32api-headers
+Summary:   Win32 header files for Cygwin aarch64 toolchain
+Requires:  cygwin-aarch64-filesystem
+
+%description -n cygwin-aarch64-w32api-headers
+Cygwin aarch64 cross-compiler Win32 header files.
 
 %prep
 %if 0%{?snapshot_rev}
@@ -57,6 +66,7 @@ Cygwin x86_64 cross-compiler Win32 header files.
 pushd mingw-w64-headers
     CYGWIN32_CONFIGURE_ARGS="--includedir=%{cygwin32_includedir}/w32api"
     CYGWIN64_CONFIGURE_ARGS="--includedir=%{cygwin64_includedir}/w32api"
+    CYGWIN_AARCH64_CONFIGURE_ARGS="--includedir=%{cygwin_aarch64_includedir}/w32api"
     %cygwin_configure --enable-w32api
 popd
 
@@ -75,8 +85,14 @@ popd
 %doc COPYING DISCLAIMER DISCLAIMER.PD
 %{cygwin64_includedir}/w32api/
 
+%files -n cygwin-aarch64-w32api-headers
+%doc COPYING DISCLAIMER DISCLAIMER.PD
+%{cygwin_aarch64_includedir}/w32api/
 
 %changelog
+* Sat Sep 12 2026 Jon Turney <jon.turney@dronecode.org.uk> - 14.0.0-2
+- add aarch64
+
 * Sat Sep 12 2026 Jon Turney <jon.turney@dronecode.org.uk> - 14.0.0-1
 - new version
 

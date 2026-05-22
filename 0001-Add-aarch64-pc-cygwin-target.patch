@@ -1,0 +1,26 @@
+From de699ad070cf9ba07b827f54238ab9b9d432a8ec Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Radek=20Barto=C5=88?= <radek.barton@microsoft.com>
+Date: Tue, 3 Dec 2024 15:30:49 +0100
+Subject: [PATCH] Add `aarch64-pc-cygwin-target`
+
+Co-authored-by: Evgeny Karpov <eukarpov@gmail.com>
+---
+ mingw-w64-headers/crt/_cygwin.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/mingw-w64-headers/crt/_cygwin.h b/mingw-w64-headers/crt/_cygwin.h
+index 78452cf2b..9f6a312a7 100644
+--- a/mingw-w64-headers/crt/_cygwin.h
++++ b/mingw-w64-headers/crt/_cygwin.h
+@@ -29,7 +29,7 @@
+    The Cygwin-targeting gcc does not define it by default, same as
+    with _WIN32.  Therefore we set it here.  The result is that _WIN64
+    is only defined if Windows headers are included. */
+-#ifdef __x86_64__
++#if defined(__x86_64__) || defined(__aarch64__)
+ #define _WIN64
+ #endif
+ 
+-- 
+2.51.0
+
