@@ -24,6 +24,7 @@ Source0:        https://downloads.sourceforge.net/mingw-w64/mingw-w64-v%{version
 
 BuildRequires:  cygwin32-filesystem
 BuildRequires:  cygwin64-filesystem
+BuildRequires:  cygwin-aarch64-filesystem
 BuildRequires:  make
 
 %description
@@ -45,6 +46,12 @@ Requires:  cygwin64-filesystem
 %description -n cygwin64-w32api-headers
 Cygwin x86_64 cross-compiler Win32 header files.
 
+%package -n cygwin-aarch64-w32api-headers
+Summary:   Win32 header files for Cygwin aarch64 toolchain
+Requires:  cygwin-aarch64-filesystem
+
+%description -n cygwin-aarch64-w32api-headers
+Cygwin aarch64 cross-compiler Win32 header files.
 
 %prep
 %if 0%{?snapshot_rev}
@@ -57,6 +64,7 @@ Cygwin x86_64 cross-compiler Win32 header files.
 pushd mingw-w64-headers
     CYGWIN32_CONFIGURE_ARGS="--includedir=%{cygwin32_includedir}/w32api"
     CYGWIN64_CONFIGURE_ARGS="--includedir=%{cygwin64_includedir}/w32api"
+    CYGWIN_AARCH64_CONFIGURE_ARGS="--includedir=%{cygwin_aarch64_includedir}/w32api"
     %cygwin_configure --enable-w32api
 popd
 
@@ -75,6 +83,9 @@ popd
 %doc COPYING DISCLAIMER DISCLAIMER.PD
 %{cygwin64_includedir}/w32api/
 
+%files -n cygwin-aarch64-w32api-headers
+%doc COPYING DISCLAIMER DISCLAIMER.PD
+%{cygwin_aarch64_includedir}/w32api/
 
 %changelog
 * Thu Aug 26 2021 Yaakov Selkowitz <yselkowi@redhat.com> - 9.0.0-1
