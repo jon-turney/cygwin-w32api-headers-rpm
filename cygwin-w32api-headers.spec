@@ -2,7 +2,7 @@
 #%%global branch trunk
 
 Name:           cygwin-w32api-headers
-Version:        13.0.0
+Version:        14.0.0
 Release:        1%{?dist}
 Summary:        Win32 header files for Cygwin toolchain
 
@@ -19,7 +19,7 @@ BuildArch:      noarch
 # wget http://sourceforge.net/code-snapshots/svn/m/mi/mingw-w64/code/mingw-w64-code-%{snapshot_rev}-%{branch}.zip
 Source0:        mingw-w64-code-%{snapshot_rev}-%{branch}.zip
 %else
-Source0:        http://downloads.sourceforge.net/mingw-w64/mingw-w64-v%{version}.tar.bz2
+Source0:        https://downloads.sourceforge.net/mingw-w64/mingw-w64-v%{version}.tar.bz2
 %endif
 
 BuildRequires:  cygwin32-filesystem
@@ -48,9 +48,9 @@ Cygwin x86_64 cross-compiler Win32 header files.
 
 %prep
 %if 0%{?snapshot_rev}
-%setup -q -n mingw-w64-code-%{snapshot_rev}-%{branch}
+%autosetup -p1 -n mingw-w64-code-%{snapshot_rev}-%{branch}
 %else
-%setup -q -n mingw-w64-v%{version}
+%autosetup -p1 -n mingw-w64-v%{version}
 %endif
 
 %build
@@ -77,6 +77,9 @@ popd
 
 
 %changelog
+* Sat Sep 12 2026 Jon Turney <jon.turney@dronecode.org.uk> - 14.0.0-1
+- new version
+
 * Thu Aug 26 2021 Yaakov Selkowitz <yselkowi@redhat.com> - 9.0.0-1
 - new version
 
