@@ -3,7 +3,7 @@
 
 Name:           cygwin-w32api-headers
 Version:        14.0.0
-Release:        1%{?dist}
+Release:        3%{?dist}
 Summary:        Win32 header files for Cygwin toolchain
 
 License:        Public Domain and LGPLv2+ and ZPLv2.1
@@ -21,6 +21,8 @@ Source0:        mingw-w64-code-%{snapshot_rev}-%{branch}.zip
 %else
 Source0:        https://downloads.sourceforge.net/mingw-w64/mingw-w64-v%{version}.tar.bz2
 %endif
+
+Patch0:         0001-Add-aarch64-pc-cygwin-target.patch
 
 BuildRequires:  cygwin32-filesystem
 BuildRequires:  cygwin64-filesystem
@@ -55,9 +57,9 @@ Cygwin aarch64 cross-compiler Win32 header files.
 
 %prep
 %if 0%{?snapshot_rev}
-%setup -q -n mingw-w64-code-%{snapshot_rev}-%{branch}
+%autosetup -p1 -n mingw-w64-code-%{snapshot_rev}-%{branch}
 %else
-%setup -q -n mingw-w64-v%{version}
+%autosetup -p1 -n mingw-w64-v%{version}
 %endif
 
 %build
